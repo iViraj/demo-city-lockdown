@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-storm-blue: #0b1d2a;
+  --color-electric-purple: #6a5cff;
+  --color-emergency-red: #ff3b3b;
+  --color-warning-yellow: #ffd93b;
+  --color-neon-cyan: #00eaff;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-zinc-100 font-sans overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  .bg-glow {
+    box-shadow: 0 0 20px currentColor;
+  }
+  .mask-radial {
+    mask-image: radial-gradient(circle, black 0%, transparent 70%);
+  }
+}
+
+@keyframes rain {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+.rain-drop {
+  @apply absolute w-[1px] h-10 bg-white/20;
+  animation: rain 0.5s linear infinite;
+}
+
+@keyframes lightning {
+  0%, 95%, 100% { opacity: 0; }
+  96%, 98% { opacity: 0.8; }
+  97% { opacity: 0.4; }
+}
+
+.lightning-flash {
+  @apply fixed inset-0 bg-white pointer-events-none z-50;
+  animation: lightning 0.2s ease-out forwards;
+}
