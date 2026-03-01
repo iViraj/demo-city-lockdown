@@ -5,7 +5,7 @@
       const initAudio = () => {
         if (!stormSound) {
           stormSound = new Howl({
-            src: ['https://actions.google.com/sounds/v1/weather/rain_thunder.ogg'], // realistic storm
+            src: ['https://github.com/iViraj/demo-city-lockdown/blob/main/assets/Rain_thunder_and_birds.ogg.mp3'], // realistic storm
             loop: true,
             volume: 0.4,
             html5: true,
