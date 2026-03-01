@@ -1,41 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>City Lockdown</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Lockdown · survive the storm</title>
+  <!-- Fonts & libraries -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Anton&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- GSAP & Howler (lightweight) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 
 </head>
-
 <body>
+  <!-- fake warning banner -->
+  <div class="storm-banner">⚠ STORM WARNING ACTIVE — SEEK SHELTER ⚠</div>
 
-<div id="storm-bg"></div>
+  <!-- sound toggle -->
+  <div id="sound-toggle"><i class="fas fa-volume-up"></i> <span style="font-size:1rem;">SOUND</span></div>
 
-<div class="container">
+  <!-- player counter animated -->
+  <div class="player-counter"><i class="fas fa-users"></i> <span id="playerCount">1284</span> SURVIVING</div>
 
-<h1 class="title">
-CITY LOCKDOWN
-</h1>
+  <!-- rain container -->
+  <div id="rain-container"></div>
 
-<button id="startBtn">
-ENTER THE CITY
-</button>
+  <!-- lightning overlay -->
+  <div class="lightning" id="lightning-flash"></div>
 
-<div id="mapContainer"></div>
+  <!-- hero -->
+  <section class="hero">
+    <div class="storm-bg"></div>
+    <div class="cloud-layer"></div>
+    <div class="cloud-layer cloud-layer2"></div>
+    <div class="hero-content">
+      <h1>CITY LOCKDOWN</h1>
+      <div class="sub">SURVIVE THE STORM</div>
+      <div class="btn-group">
+        <button class="game-btn"><i class="fab fa-roblox"></i> PLAY ON ROBLOX</button>
+        <button class="game-btn"><i class="fas fa-play"></i> WATCH GAMEPLAY</button>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- How it works cards -->
+  <section><div class="section-title">⚡ HOW IT WORKS ⚡</div>
+    <div class="card-grid">
+      <div class="how-card"><i class="fas fa-running" style="font-size:4rem;"></i><br>RUN <p>avoid disasters</p></div>
+      <div class="how-card"><i class="fas fa-house-damage" style="font-size:4rem;"></i><br>HIDE <p>find shelter</p></div>
+      <div class="how-card"><i class="fas fa-skull-crossbones" style="font-size:4rem;"></i><br>SURVIVE <p>earn rewards</p></div>
+    </div>
+  </section>
 
-<audio id="bgm" loop>
-<source src="assets/bgm.mp3" type="audio/mp3">
-</audio>
+  <!-- Disasters showcase -->
+  <section><div class="section-title">🌪️ DISASTERS 🌪️</div>
+    <div class="card-grid">
+      <div class="disaster-card"><span style="font-size:4rem;">🌪️</span> TORNADO <p>Pulls players & objects</p></div>
+      <div class="disaster-card"><span style="font-size:4rem;">🌊</span> FLOOD <p>Water rises in streets</p></div>
+      <div class="disaster-card"><span style="font-size:4rem;">⚡</span> LIGHTNING <p>Strikes open areas</p></div>
+      <div class="disaster-card"><span style="font-size:4rem;">🌑</span> BLACKOUT <p>Power shuts down</p></div>
+    </div>
+  </section>
 
-<script src="js/storm.js"></script>
-<script src="js/audio.js"></script>
-<script src="js/map.js"></script>
-<script src="js/app.js"></script>
+  <!-- Interactive map -->
+  <section><div class="section-title">🏙️ THE CITY</div>
+    <div class="map-container">
+      <div class="building" data-name="Apartments" data-tip="Safe during flood? No!">🏢<span>APARTMENTS</span></div>
+      <div class="building" data-name="Hospital basement" data-tip="Safe lightning, danger flood">🏥<span>HOSPITAL</span></div>
+      <div class="building" data-name="24/7 Shop" data-tip="Fragile roof">🏪<span>SHOPS</span></div>
+      <div class="building" data-name="Central Park" data-tip="Lightning magnet">🌳<span>PARK</span></div>
+    </div>
+  </section>
 
+  <!-- Video -->
+  <section><div class="section-title">🎥 GAMEPLAY TRAILER</div>
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline poster="https://via.placeholder.com/1000x560/111/6a5cff?text=STORM+IS+COMING">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section><div class="section-title">⚙️ FEATURES</div>
+    <div class="card-grid">
+      <div class="feature-card">🌀 RANDOM STORMS <p>never the same</p></div>
+      <div class="feature-card">⏱️ REAL-TIME DANGER <p>city reacts</p></div>
+      <div class="feature-card">👥 MULTIPLAYER <p>survive together</p></div>
+      <div class="feature-card">🗺️ DYNAMIC MAP <p>evolving hotspots</p></div>
+    </div>
+  </section>
+
+  <!-- Items -->
+  <section><div class="section-title">🎒 SURVIVAL ITEMS</div>
+    <div class="items-scroll">
+      <div class="item"><i class="fas fa-lightbulb"></i> FLASHLIGHT <p>essential blackouts</p></div>
+      <div class="item"><i class="fas fa-kit-medical"></i> MEDKIT <p>heal in storm</p></div>
+      <div class="item"><i class="fas fa-broadcast-tower"></i> RADIO <p>warning alerts</p></div>
+      <div class="item"><i class="fas fa-umbrella"></i> UMBRELLA <p>wind protection?</p></div>
+    </div>
+  </section>
+
+  <!-- Difference -->
+  <section><div class="section-title">🔥 WHY CITY LOCKDOWN?</div>
+    <div style="text-align:center; font-size:2.5rem; padding:3rem; border:4px solid #ff3b3b; margin:0 10%; background:#111c28;">
+      <p>❌ NO SAFE ZONES</p>
+      <p>🌀 EVERY ROUND DIFFERENT</p>
+      <p>🌆 CITY REACTS TO DISASTERS</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta">
+    <h2>CAN YOU SURVIVE?</h2>
+    <button class="game-btn" style="font-size:3.5rem; padding:1.5rem 5rem;">PLAY NOW</button>
+  </section>
+
+  <style>
+    /* extra touches */
+    .building[data-name]:hover::after { content: attr(data-tip); position: absolute; bottom: 100%; background: #111; border: 2px solid #00eaff; color: white; padding: 5px; font-size:1rem; white-space:nowrap; z-index:200; }
+    #lightning-flash { background: #ffffdd; z-index: 999; }
+  </style>
+  <script src="js/script.js" ></script>
 </body>
 </html>
